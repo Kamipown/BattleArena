@@ -6,9 +6,10 @@ namespace kami
 	SDL_Renderer	*c_window::renderer = 0;
 	bool			c_window::opened = false;
 
-	void	c_window::open(void)
+	void	c_window::init(void)
 	{
-		if (!(c_window::window = SDL_CreateWindow("Kami", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 320, 240, SDL_WINDOW_RESIZABLE)))
+		t_point	size = c_screen::get_best_windowed_size();
+		if (!(c_window::window = SDL_CreateWindow("Kami", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, size.x, size.y, SDL_WINDOW_RESIZABLE)))
 			c_error::set(5, "Can't create window.");
 		if (!(c_window::renderer = SDL_CreateRenderer(c_window::window, -1, SDL_RENDERER_ACCELERATED)))
 		{

@@ -54,9 +54,10 @@ namespace kami
 			{
 				if (c_event::event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
 				{
-					t_point size = c_window::get_size();
-					if (size.x < 320 || size.y < 240)
-						c_window::set_size((t_point){320, 240});	
+					c_gfx::update_layer_dst();
+					// t_point size = c_window::get_size();
+					// if (size.x < 320 || size.y < 240)
+					// 	c_window::set_size((t_point){320, 240});	
 				}
 			}
 		}

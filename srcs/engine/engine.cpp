@@ -35,6 +35,8 @@ namespace kami
 
 		c_screen::init();
 		c_config::init();
+		c_window::init();
+		c_gfx::init();
 	}
 
 	void		c_engine::quit(void)

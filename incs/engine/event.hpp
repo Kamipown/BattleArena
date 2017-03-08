@@ -3,11 +3,12 @@
 #include <SDL2/SDL.h>
 
 #include "defs.hpp"
+#include "gfx.hpp"
 #include "window.hpp"
 
 namespace	kami
 {
-	class	c_event
+	class	c_event : public c_gfx
 	{
 	private:
 		static SDL_Event	event;

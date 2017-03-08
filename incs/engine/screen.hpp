@@ -17,6 +17,7 @@ namespace kami
 
 	protected:
 		static void		init(void);
+		static t_point	get_best_windowed_size(void);
 		static void		save(void);
 
 	public:

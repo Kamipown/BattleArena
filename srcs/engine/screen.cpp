@@ -17,10 +17,16 @@ namespace kami
 			SDL_GetDisplayMode(0, modes_count - 1, &mode);
 			c_screen::modes.push_back(mode);
 		}
-		for (t_uint i = 0; i < c_screen::modes.size(); ++i)
-			std::cout << c_screen::modes[i].w << " " << c_screen::modes[i].h << " " << c_screen::modes[i].refresh_rate << std::endl;
-		for (t_uint8 i = 0; i < 10; ++i)
-			std::cout << 320 * i << " " << 240 * i << std::endl;
+	}
+
+	t_point		c_screen::get_best_windowed_size(void)
+	{
+		t_uint8	scale = 1;
+		t_point	size = (t_point){320, 240};
+
+		while (320 * scale < c_screen::modes[c_screen::modes.size() - 1].w && 240 * scale < c_screen::modes[c_screen::modes.size() - 1].h)
+			++scale;
+		return ((t_point){size.x * (scale - 1), size.y * (scale - 1)});
 	}
 
 	void		c_screen::save(void)

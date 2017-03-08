@@ -13,7 +13,13 @@ namespace	kami
 	class	c_gfx : public c_window
 	{
 	private:
-		static t_color	draw_color;
+		static SDL_Texture	*layer;
+		static t_rect		layer_dst;
+		static t_color		draw_color;
+
+	protected:
+		static void		init(void);
+		static void		update_layer_dst(void);
 
 	public:
 		static void		set_draw_color(const t_color color);

@@ -3,7 +3,6 @@
 c_game::c_game(void)
 {
 	c_engine::init();
-	c_window::open();
 	
 	this->scene = new c_scene_arena_1();
 	this->start();
@@ -33,8 +32,6 @@ void	c_game::start(void)
 	while (c_window::is_open())
 	{
 		c_event::update();
-		if (c_event::quit || c_event::escape)
-			c_window::close();
 		if (c_event::keyboard_1)
 			this->change_scene(1);
 		if (c_event::keyboard_2)
@@ -42,15 +39,11 @@ void	c_game::start(void)
 		if (c_event::keyboard_3)
 			this->change_scene(3);
 		c_gfx::clear();
-		// this->scene->process();
+		this->scene->process();
 		// c_gfx::lighting();
 		c_gfx::render();
 		c_time::update();
+		if (c_event::quit || c_event::escape)
+			c_window::close();
 	}
-}
-
-void	c_game::loop(void)
-{
-	c_gfx::draw_pixel((t_point){50, 50});
-	c_gfx::draw_pixel((t_point){51, 51});
 }

@@ -3,7 +3,40 @@
 
 namespace kami
 {
-	t_color c_gfx::draw_color = (t_color){255, 255, 255, 255};
+	SDL_Texture	*c_gfx::layer = 0;
+	t_rect		c_gfx::layer_dst;
+	t_color		c_gfx::draw_color = (t_color){255, 255, 255, 255};
+
+	void	c_gfx::init(void)
+	{
+		if (!(c_gfx::layer = SDL_CreateTexture(c_window::renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 320, 240)))
+		{
+			std::cout << SDL_GetError() << std::endl;
+			c_error::set(7, "Can't create layer.");
+		}
+		c_gfx::update_layer_dst();
+	}
+
+	void	c_gfx::update_layer_dst(void)
+	{
+		t_point	size = c_window::get_size();
+
+		if (size.x / (double)size.y > 1.334)
+		{
+			c_gfx::layer_dst.h = size.y;
+			c_gfx::layer_dst.w = c_gfx::layer_dst.h * 1.333;
+			c_gfx::layer_dst.x = (size.x - c_gfx::layer_dst.w) / 2;
+			c_gfx::layer_dst.y = 0;
+		}
+		else
+		{
+			c_gfx::layer_dst.w = size.x;
+			c_gfx::layer_dst.h = c_gfx::layer_dst.w * 0.75;
+			c_gfx::layer_dst.x = 0;
+			c_gfx::layer_dst.y = (size.y - c_gfx::layer_dst.h) / 2;
+		}
+		std::cout << size.x << " " << size.y << std::endl;
+	}
 
 	void	c_gfx::set_draw_color(const t_color c)
 	{
@@ -15,6 +48,7 @@ namespace kami
 		SDL_SetRenderDrawColor(c_window::renderer, 0, 0, 0, 255);
 		SDL_RenderClear(c_window::renderer);
 		SDL_SetRenderDrawColor(c_window::renderer, c_gfx::draw_color.r, c_gfx::draw_color.g, c_gfx::draw_color.b, c_gfx::draw_color.a);
+		SDL_SetRenderTarget(c_window::renderer, c_gfx::layer);		
 	}
 
 	void	c_gfx::lighting(void)
@@ -34,6 +68,8 @@ namespace kami
 
 	void	c_gfx::render(void)
 	{
+		SDL_SetRenderTarget(c_window::renderer, 0);
+		SDL_RenderCopy(c_window::renderer, c_gfx::layer, 0, &c_gfx::layer_dst);
 		SDL_RenderPresent(c_window::renderer);
 	}
 

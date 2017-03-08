@@ -17,7 +17,6 @@ namespace kami
 			{
 				iss.str(line);
 				iss >> values.first >> values.second;
-				std::cout << values.first << " " << values.second << std::endl;
 				if (values.first == "fullscreen")
 					c_config::fullscreen = (bool)std::atoi(values.second.c_str());
 				iss.clear();

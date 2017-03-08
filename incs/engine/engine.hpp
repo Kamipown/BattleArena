@@ -7,6 +7,8 @@
 #include <SDL2/SDL_ttf.h>
 
 #include "error.hpp"
+#include "gfx.hpp"
+#include "window.hpp"
 #include "screen.hpp"
 #include "config.hpp"
 
@@ -17,7 +19,7 @@ namespace kami
 		bool	fullscreen;
 	};
 
-	class 		c_engine: public c_screen, public c_config
+	class 		c_engine: public c_gfx, public c_config
 	{
 	private:
 		static void		init_sdl2(void);

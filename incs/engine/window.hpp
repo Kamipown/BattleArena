@@ -5,10 +5,11 @@
 
 #include "defs.hpp"
 #include "error.hpp"
+#include "screen.hpp"
 
 namespace	kami
 {
-	class	c_window
+	class	c_window: public c_screen
 	{
 	private:
 		static bool			opened;
@@ -17,8 +18,9 @@ namespace	kami
 		static SDL_Window	*window;
 		static SDL_Renderer	*renderer;
 
+		static void			init(void);
+		
 	public:
-		static void			open(void);
 		static void			close(void);
 
 		static bool			is_open(void);

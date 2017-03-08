@@ -19,7 +19,6 @@ private:
 
 	void	start(void);
 	void	change_scene(t_uint8 scene_id);
-	void	loop(void);
 
 public:
 	c_game(void);
