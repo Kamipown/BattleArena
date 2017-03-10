@@ -13,6 +13,7 @@ class c_scene_sandbox : public c_scene
 private:
 	c_arena	arena;
 	c_image pixelart;
+	c_image mage;
 
 public:
 	c_scene_sandbox(void);
