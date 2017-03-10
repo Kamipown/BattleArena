@@ -2,7 +2,7 @@ NAME =	game
 
 CC =	g++
 
-FLG =	-Wall -Wextra -Werror -pg -g
+FLG =	-Wall -Wextra -Werror -g -pg
 
 LIB =	-lSDL2 -lSDL2_image -lSDL2_ttf
 
@@ -16,11 +16,8 @@ all: $(NAME)
 
 $(NAME):
 	# g++ -Wall -Wextra -Werror srcs/main.cpp -lSDL2 -lSDL2_image -lSDL2_ttf
-	$(CC) $(FLG) $(SRC) $(INC) $(LIB) -o $(NAME)
+	$(CC) -O3 $(FLG) $(SRC) $(INC) $(LIB) -o $(NAME)
 	# $(CC) -O3 -o $(NAME) $(OBJ)
-
-libkami:
-	make -C kami/ re
 
 clean:
 	rm -f $(OBJ)

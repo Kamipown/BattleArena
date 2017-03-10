@@ -8,15 +8,15 @@
 
 using namespace kami;
 
-class c_scene_arena_1 : public c_scene
+class c_scene_splashscreen : public c_scene
 {
 private:
 	c_arena	arena;
 	c_image pixelart;
 
 public:
-	c_scene_arena_1(void);
-	~c_scene_arena_1(void);
+	c_scene_splashscreen(void);
+	~c_scene_splashscreen(void);
 
 	virtual t_uint8	process(void);
 

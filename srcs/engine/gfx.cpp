@@ -14,6 +14,7 @@ namespace kami
 			std::cout << SDL_GetError() << std::endl;
 			c_error::set(7, "Can't create layer.");
 		}
+		SDL_SetTextureBlendMode(c_gfx::layer, SDL_BLENDMODE_BLEND);
 		c_gfx::update_layer_dst();
 	}
 
@@ -35,7 +36,6 @@ namespace kami
 			c_gfx::layer_dst.x = 0;
 			c_gfx::layer_dst.y = (size.y - c_gfx::layer_dst.h) / 2;
 		}
-		std::cout << size.x << " " << size.y << std::endl;
 	}
 
 	void	c_gfx::set_draw_color(const t_color c)

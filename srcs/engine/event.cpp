@@ -29,11 +29,11 @@ namespace kami
 			{
 				if (c_event::event.key.keysym.sym == SDLK_ESCAPE)
 					c_event::escape = true;
-				else if (c_event::event.key.keysym.sym == SDLK_1)
+				else if (c_event::event.key.keysym.sym == SDLK_a)
 					c_event::keyboard_1 = true;
-				else if (c_event::event.key.keysym.sym == SDLK_2)
+				else if (c_event::event.key.keysym.sym == SDLK_z)
 					c_event::keyboard_2 = true;
-				else if (c_event::event.key.keysym.sym == SDLK_3)
+				else if (c_event::event.key.keysym.sym == SDLK_e)
 					c_event::keyboard_3 = true;
 			}
 			else if (c_event::event.type == SDL_MOUSEBUTTONDOWN)

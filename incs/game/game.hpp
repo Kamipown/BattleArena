@@ -5,8 +5,10 @@
 #include "gfx.hpp"
 #include "event.hpp"
 #include "time.hpp"
+#include "timer.hpp"
 #include "scene.hpp"
-#include "scene_arena_1.hpp"
+#include "scene_sandbox.hpp"
+#include "scene_splashscreen.hpp"
 #include "scene_arena_2.hpp"
 #include "scene_arena_3.hpp"
 
