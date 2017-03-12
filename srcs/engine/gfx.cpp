@@ -47,8 +47,9 @@ namespace kami
 	{
 		SDL_SetRenderDrawColor(c_window::renderer, 0, 0, 0, 255);
 		SDL_RenderClear(c_window::renderer);
-		SDL_SetRenderDrawColor(c_window::renderer, c_gfx::draw_color.r, c_gfx::draw_color.g, c_gfx::draw_color.b, c_gfx::draw_color.a);
 		SDL_SetRenderTarget(c_window::renderer, c_gfx::layer);		
+		SDL_RenderClear(c_window::renderer);
+		SDL_SetRenderDrawColor(c_window::renderer, c_gfx::draw_color.r, c_gfx::draw_color.g, c_gfx::draw_color.b, c_gfx::draw_color.a);
 	}
 
 	void	c_gfx::lighting(void)
@@ -73,6 +74,14 @@ namespace kami
 		SDL_RenderPresent(c_window::renderer);
 	}
 
+
+	void	c_gfx::draw(c_image &img, const t_rect *sub, const t_rect *dst)
+	{
+		std::cout << sub->x << ' ' << sub->y << ' ' << sub->w << ' ' << sub->h << std::endl;
+		std::cout << dst->x << ' ' << dst->y << ' ' << dst->w << ' ' << dst->h << std::endl;
+		SDL_RenderCopy(c_window::renderer, img.get_texture(), sub, dst);
+	}
+
 	void	c_gfx::draw_pixel(const t_point p)
 	{
 		SDL_RenderDrawPoint(c_window::renderer, p.x, p.y);
@@ -91,6 +100,16 @@ namespace kami
 	void	c_gfx::fill_rect(const t_rect rect)
 	{
 		SDL_RenderFillRect(c_window::renderer, &rect);
+	}
+
+	void	c_gfx::draw_image(const t_uint id)
+	{
+		SDL_RenderCopy(c_window::renderer, c_res::images[id].texture, 0, 0);
+	}
+
+	void	c_gfx::draw_image(const t_uint id, const t_rect *sub, const t_rect *dst)
+	{
+		SDL_RenderCopy(c_window::renderer, c_res::images[id].texture, sub, dst);
 	}
 
 	void	c_gfx::draw_image(c_image &image)

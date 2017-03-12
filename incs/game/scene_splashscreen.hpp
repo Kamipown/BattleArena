@@ -11,8 +11,8 @@ using namespace kami;
 class c_scene_splashscreen : public c_scene
 {
 private:
-	c_arena	arena;
-	c_image pixelart;
+	// c_arena	arena;
+	// c_image pixelart;
 
 public:
 	c_scene_splashscreen(void);

@@ -22,8 +22,8 @@ namespace	kami
 		void			load(const char *filename);
 
 		SDL_Texture		*get_texture(void){return (this->texture);}
-		t_point			get_size(void) {return (this->size);}
-		int				get_width(void) {return (this->size.x);}
-		int				get_height(void) {return (this->size.y);}
+		t_point			get_size(void) const {return (this->size);}
+		int				get_width(void) const {return (this->size.x);}
+		int				get_height(void) const {return (this->size.y);}
 	};
 }

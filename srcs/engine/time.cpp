@@ -40,4 +40,9 @@ namespace kami
 	{
 		return (c_time::frame_duration ? c_time::frame_duration : c_time::ellapsed_time);
 	}
+
+	t_uint	c_time::time(void)
+	{
+		return (SDL_GetTicks());
+	}
 }

@@ -21,6 +21,7 @@ namespace kami
 		static void		manage_lock(void);
 
 		static t_uint	delta_time(void);
+		static t_uint	time(void);
 		
 	};
 }
