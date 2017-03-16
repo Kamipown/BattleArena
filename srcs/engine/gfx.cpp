@@ -109,10 +109,26 @@ namespace kami
 
 	void	c_gfx::draw_image(const t_uint id, const t_rect *sub, const t_rect *dst, const bool flip)
 	{
+		t_rect	tdst = *dst;
+
 		if (flip)
+		{
 			SDL_RenderCopyEx(c_window::renderer, c_res::images[id].texture, sub, dst, 0, 0, SDL_FLIP_HORIZONTAL);
+			if (dst->x + sub->w >= 320)
+			{
+				tdst.x -= 320;
+				SDL_RenderCopyEx(c_window::renderer, c_res::images[id].texture, sub, &tdst, 0, 0, SDL_FLIP_HORIZONTAL);
+			}
+		}
 		else
+		{
 			SDL_RenderCopy(c_window::renderer, c_res::images[id].texture, sub, dst);
+			if (dst->x + sub->w >= 320)
+			{
+				tdst.x -= 320;
+				SDL_RenderCopy(c_window::renderer, c_res::images[id].texture, sub, &tdst);
+			}
+		}
 	}
 
 	void	c_gfx::draw_image(c_image &image)

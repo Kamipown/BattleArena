@@ -42,9 +42,20 @@ void	c_hero::update(void)
 			this->face_left = true;
 		else if (mv.x > 0)
 			this->face_left = false;
+
+		if (this->position.x > 320)
+			this->position.x -= 320;
+		else if (this->position.x < 0)
+			this->position.x += 320;
+
+		if (this->position.y > 240)
+			this->position.y -= 240;
+		else if (this->position.y < 0)
+			this->position.y += 240;
 	}
 	else
 		this->animator.set_current(0);
+	// std::cout << this->position.x << " " << this->position.y << std::endl;
 }
 
 void	c_hero::draw(void) const
@@ -52,8 +63,8 @@ void	c_hero::draw(void) const
 	SDL_Rect	sub = this->animator.get_subrect();
 	SDL_Rect	dst = (SDL_Rect)
 	{
-		(int)this->position.x,
-		(int)this->position.y,
+		(int)round(this->position.x),
+		(int)round(this->position.y),
 		c_res::get_image_width(0) / 4,
 		c_res::get_image_height(0)
 	};

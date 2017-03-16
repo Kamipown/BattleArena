@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cmath>
 // #include "defs.hpp"
 #include "event.hpp"
 #include "time.hpp"

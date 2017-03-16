@@ -25,7 +25,7 @@ t_uint8	c_scene_sandbox::process(void)
 	// c_gfx::draw_image(0, &sub, &dst);
 	this->kamipown->update();
 	this->kamipown->draw();
-	std::cout << c_time::delta_time() << std::endl;
+	// std::cout << c_time::delta_time() << std::endl;
 	//this->arena.draw();
 	// c_gfx::draw_image(this->pixelart);
 	// c_gfx::draw_image(this->mage_idle, (t_point){124, 108});
