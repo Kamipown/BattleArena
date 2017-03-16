@@ -9,3 +9,9 @@ typedef Uint32			t_uint32;
 typedef SDL_Point		t_point;
 typedef SDL_Rect		t_rect;
 typedef SDL_Color		t_color;
+
+struct s_vec2f
+{
+	float	x;
+	float	y;
+};

@@ -30,6 +30,8 @@ namespace	kami
 		c_animator(void);
 		t_uint	add_animation(t_uint texture_id, t_uint frame_count, t_uint frame_duration);
 		t_rect	get_subrect(void) const;
+		t_uint	get_current(void) const;
+		void	set_current(const t_uint n);
 		
 	};
 }

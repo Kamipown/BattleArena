@@ -22,7 +22,7 @@ void	c_game::change_scene(t_uint8 scene_id)
 	else if (scene_id == 2)
 		this->scene = new c_scene_arena_2();
 	else if (scene_id == 3)
-		this->scene = new c_scene_arena_3();
+		this->scene = new c_scene_sandbox();
 	std::cout << "Change scene to scene_arena_" << (int)scene_id << std::endl;
 }
 

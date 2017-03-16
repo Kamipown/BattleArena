@@ -3,6 +3,7 @@
 #include "gfx.hpp"
 #include "res.hpp"
 #include "image.hpp"
+#include "time.hpp"
 
 #include "scene.hpp"
 #include "arena.hpp"

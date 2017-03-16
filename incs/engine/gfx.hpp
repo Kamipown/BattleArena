@@ -38,7 +38,7 @@ namespace	kami
 		static void		draw_rect(const t_rect rect);
 		static void		fill_rect(const t_rect rect);
 		static void		draw_image(const t_uint id);
-		static void		draw_image(const t_uint id, const t_rect *sub, const t_rect *dst);
+		static void		draw_image(const t_uint id, const t_rect *sub, const t_rect *dst, const bool flip = false);
 
 		static void		draw_image(c_image &img);
 		static void		draw_image(c_image &img, const t_point pos);

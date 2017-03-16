@@ -16,7 +16,11 @@ namespace kami
 
 	t_rect	c_animator::get_subrect(void) const
 	{
-		int n =	(c_time::time() - this->anim_start) / this->animations[this->current].frame_duration % 4 * (int)(c_res::get_image_width(this->current) / this->animations[this->current].frame_count);
+		int n =	(c_time::time() - this->anim_start)
+				/ this->animations[this->current].frame_duration
+				% this->animations[this->current].frame_count
+				* (int)(c_res::get_image_width(this->current)
+					/ this->animations[this->current].frame_count);
 
 		// std::cout << n << std::endl;
 		return ((t_rect)
@@ -26,5 +30,18 @@ namespace kami
 			(int)(c_res::get_image_width(this->current) / this->animations[this->current].frame_count),
 			c_res::get_image_width(this->current)
 		});
+	}
+
+	t_uint	c_animator::get_current(void) const
+	{
+		return (this->current);
+	}
+
+	void	c_animator::set_current(const t_uint n)
+	{
+		if (this->current == n)
+			return ;
+		this->current = n;
+		this->anim_start = c_time::time();
 	}
 }
