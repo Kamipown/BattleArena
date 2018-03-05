@@ -2,35 +2,29 @@ NAME =	game
 
 CC =	g++
 
-FLG =	-Wall -Wextra -Werror -g -pg
+FLG =	-Wall -Wextra -Werror
 
-LIB =	-lSDL2 -lSDL2_image -lSDL2_ttf
+LIB =	-lSDL2 -lSDL2_image -lSDL2_mixer  -lSDL2_ttf
 
-INC =	-I./incs -I./incs/game -I./incs/engine
+INC =	-I./inc
 
-SRC =	srcs/main.cpp srcs/game/*.cpp srcs/engine/*.cpp
+SRC =	src/*.cpp
 
-OBJ =	main.o game.o engine.o
+# OBJ =	main.o game.o engine.o
 
 all: $(NAME)
 
 $(NAME):
-	# g++ -Wall -Wextra -Werror srcs/main.cpp -lSDL2 -lSDL2_image -lSDL2_ttf
-	$(CC) -O3 $(FLG) $(SRC) $(INC) $(LIB) -o $(NAME)
-	# $(CC) -O3 -o $(NAME) $(OBJ)
+	$(CC) -O3 $(FLG) $(SRC) $(INC) $(LIB) -o out/$(NAME)
+	# $(CC) -O3 $(FLG) $(SRC) $(INC) -o out/$(NAME)
 
 clean:
-	rm -f $(OBJ)
-	rm -f profiling.out
-	rm -f gmon.out
+	rm -f out/$(NAME)
+	# rm -f $(OBJ)
+	# rm -f profiling.out
+	# rm -f gmon.out
 
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
+re: clean all
 
 rex: re
 	./$(NAME)
-
-profiling:
-	gprof $(NAME) > profiling.out
